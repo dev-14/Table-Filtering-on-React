@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { Component, useMemo } from 'react';
 import { useTable, useGlobalFilter, useFilters } from "react-table";
 import MOCK_DATA from "./MOCK_DATA.json";
 import { COLUMNS, GROUPED_COLUMNS } from "./columns";
@@ -6,7 +6,16 @@ import './table.css'
 import { GlobalFilter } from "./GlobalFilter";
 import { ColumnFilter } from './ColumnFilter';
 
-export const FilteringTable = () => {
+
+export class FilteringTable extends Component {
+    render() {
+        return(
+            <Filtering />
+        );
+    }
+}
+
+export const Filtering = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
@@ -37,7 +46,7 @@ export const FilteringTable = () => {
     const { globalFilter } = state
 
     return (
-        <>
+        <div>
         <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
 
         <table {...getTableProps()}>
@@ -93,6 +102,6 @@ export const FilteringTable = () => {
                 }
             </tfoot>
         </table>
-        </>
+        </div>
     );
 }

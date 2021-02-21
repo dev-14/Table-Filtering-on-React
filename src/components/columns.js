@@ -25,7 +25,7 @@ export const COLUMNS = [
         Header: 'DOB',
         Footer: 'DOB',
         accessor: 'date_of_birth',
-        Cell: ({ value }) => { return format(new Date(value), 'dd/mm/yyyy')},
+        //Cell: ({ value }) => { return format(new Date(value), 'dd/mm/yyyy')},
         Filter: ColumnFilter
     },
     {
